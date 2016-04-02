@@ -1,0 +1,41 @@
+<div ng-if="$ctrl.show">
+
+    <div class="modal-background" ng-click="$ctrl.cancel()"></div>
+
+    <div class="modal-content">
+        <form name="form" ng-submit="$ctrl.submit()">
+
+            <div class="form-group">
+                <label for="url">Image Url</label>
+                <input
+                        ng-model="$ctrl.image.url"
+                        type="url"
+                        class="form-control"
+                        id="url"
+                        name="url"
+                        placeholder="http://domain.com/cat.gif">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+          <textarea
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  placeholder="Describe the image"
+                  ng-model="$ctrl.image.description">
+          </textarea>
+            </div>
+
+            <div class="pull-right">
+                <button ng-click="$ctrl.cancel()" type="button" class="btn btn-default">
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
