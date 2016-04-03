@@ -1,15 +1,12 @@
 import ApiService from "./apiService";
 
 export default class ImageListCtrl {
-    api: ApiService;
-    images: any[];
+    images: string[];
     showModal: boolean;
     
-    constructor(api) {
-        var self = this;
-        this.api = api;
-        api.getImages().then(function (images) {
-            self.images = images;
+    constructor(private api: ApiService) {
+        api.getImages().then((images) => {
+            this.images = images;
         });
     }
 
@@ -18,10 +15,8 @@ export default class ImageListCtrl {
     }
     
     uploadNewImage(image) {
-        var self = this;
-
-        this.api.createImage(image).then(function(createdImage) {
-            self.images.unshift(createdImage);
+        this.api.createImage(image).then(createdImage => {
+            this.images.unshift(createdImage);
         });
     }
 }

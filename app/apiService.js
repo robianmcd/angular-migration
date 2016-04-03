@@ -12,14 +12,10 @@ System.register([], function(exports_1, context_1) {
                     this.$q = $q;
                 }
                 ApiService.prototype.getImages = function () {
-                    return this.$http.get(IMAGES_URL).then(function (response) {
-                        return response.data;
-                    });
+                    return this.$http.get(IMAGES_URL).then(function (response) { return response.data; });
                 };
                 ApiService.prototype.createImage = function (image) {
-                    return this.$http.post(IMAGES_URL, image).then(function (response) {
-                        return response.data;
-                    });
+                    return this.$http.post(IMAGES_URL, image).then(function (response) { return response.data; });
                 };
                 return ApiService;
             }());

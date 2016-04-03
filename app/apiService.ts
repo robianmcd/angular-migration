@@ -1,23 +1,16 @@
-var IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
+const IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
 
 export default class ApiService {
-    $http: ng.IHttpService;
-    $q: ng.IQService;
     
-    constructor($http, $q) {
-        this.$http = $http;
-        this.$q = $q;
+    constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
+        
     }
 
-    getImages() {
-        return this.$http.get(IMAGES_URL).then(function (response) {
-            return response.data;
-        });
+    getImages(): ng.IPromise<string[]> {
+        return this.$http.get(IMAGES_URL).then(response => response.data);
     }
 
-    createImage(image) {
-        return this.$http.post(IMAGES_URL, image).then(function (response) {
-            return response.data;
-        });
+    createImage(image): ng.IPromise<string> {
+        return this.$http.post(IMAGES_URL, image).then(response => response.data);
     }
 }

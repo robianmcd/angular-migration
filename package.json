@@ -1,15 +1,20 @@
 {
   "name": "angular-migration",
   "version": "1.0.0",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robianmcd/angular-migration.git"
+  },
   "dependencies": {
     "angular": "1.5.3",
-    "angular-route": "^1.5.3",
-    "bootstrap": "^3.3.6",
-    "systemjs": "^0.19.24"
+    "angular-route": "1.5.3",
+    "bootstrap": "3.3.6",
+    "systemjs": "0.19.24"
   },
   "devDependencies": {
-    "angular": "^1.5.3",
     "gulp": "^3.9.1",
-    "gulp-typescript": "^2.12.1"
+    "gulp-typescript": "^2.12.1",
+    "typescript": "^1.9.0-dev.20160403"
   }
 }

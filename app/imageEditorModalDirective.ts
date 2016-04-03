@@ -11,7 +11,7 @@ export default {
 class ImageEditorModalCtrl {
     image:string;
     show:boolean;
-    onSubmit:(Object) => void;
+    onSubmit:(args: {$image: string}) => void;
 
 
     submit(valid) {

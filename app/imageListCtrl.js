@@ -7,19 +7,19 @@ System.register([], function(exports_1, context_1) {
         execute: function() {
             ImageListCtrl = (function () {
                 function ImageListCtrl(api) {
-                    var self = this;
+                    var _this = this;
                     this.api = api;
                     api.getImages().then(function (images) {
-                        self.images = images;
+                        _this.images = images;
                     });
                 }
                 ImageListCtrl.prototype.addImage = function () {
                     this.showModal = true;
                 };
                 ImageListCtrl.prototype.uploadNewImage = function (image) {
-                    var self = this;
+                    var _this = this;
                     this.api.createImage(image).then(function (createdImage) {
-                        self.images.unshift(createdImage);
+                        _this.images.unshift(createdImage);
                     });
                 };
                 return ImageListCtrl;
