@@ -1699,6 +1699,13 @@ declare namespace angular {
         loader?: Function;
         component?: Type;
     }
+    
+    interface IRouteConfigOptions {
+        path: string,
+        name: string,
+        component: string,
+        useAsDefault?: boolean
+    }
 
     /**
      * Component definition object (a simplified directive definition object)
@@ -1743,6 +1750,8 @@ declare namespace angular {
          */
         transclude?: boolean | string | {[slot: string]: string};
         require?: string | string[] | {[controller: string]: string};
+        
+        $routeConfig?: IRouteConfigOptions[];
     }
 
     interface IComponentTemplateFn {
