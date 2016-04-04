@@ -1,13 +1,3 @@
- 
-export default {
-    templateUrl: 'app/imageEditorModal.html',
-    controller: ImageEditorModalCtrl,
-    bindings: {
-        show: '=',
-        onSubmit: '&'
-    }
-};
-
 class ImageEditorModalCtrl {
     image:string;
     show:boolean;
@@ -26,5 +16,13 @@ class ImageEditorModalCtrl {
         this.image = null;
         this.show = false;
     }
-
 }
+
+export default {
+    templateUrl: 'src/components/imageEditorModal/imageEditorModal.html',
+    controller: ImageEditorModalCtrl,
+    bindings: {
+        show: '=',
+        onSubmit: '&'
+    }
+};

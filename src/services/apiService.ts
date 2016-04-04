@@ -2,7 +2,7 @@ const IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
 
 export default class ApiService {
     
-    constructor(private $http: ng.IHttpService, private $q: ng.IQService) {
+    constructor(private $http: ng.IHttpService) {
         
     }
 

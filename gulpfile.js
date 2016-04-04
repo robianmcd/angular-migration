@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var ts = require('gulp-typescript');
 
 gulp.task('ts', function () {
-    return gulp.src(['app/**/*.ts', 'typings/**/*.ts'])
+    return gulp.src(['src/**/*.ts', 'typings/**/*.ts'])
         .pipe(ts({
             target: 'ES5',
             module: 'system',
@@ -10,9 +10,9 @@ gulp.task('ts', function () {
             experimentalDecorators: true,
             typescript: require('typescript')
         }))
-        .pipe(gulp.dest('app'));
+        .pipe(gulp.dest('src'));
 });
 
 gulp.task('default', ['ts'], function () {
-    gulp.watch('app/**/*.ts', ['ts']);
+    gulp.watch('src/**/*.ts', ['ts']);
 });

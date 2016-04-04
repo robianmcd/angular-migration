@@ -7,8 +7,8 @@
     "url": "https://github.com/robianmcd/angular-migration.git"
   },
   "dependencies": {
+    "@angular/router": "0.2.0",
     "angular": "1.5.3",
-    "angular-route": "1.5.3",
     "bootstrap": "3.3.6",
     "systemjs": "0.19.24"
   },

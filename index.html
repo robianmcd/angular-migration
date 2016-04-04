@@ -3,23 +3,23 @@
 
 <head>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="app/style.css"/>
+    <link rel="stylesheet" href="src/style.css"/>
 
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
 
     <script>
         System.config({
-            packages: {'app': {defaultExtension: 'js'}}
+            packages: {'src': {defaultExtension: 'js'}}
         });
-        System.import('app/app');
+        System.import('src/components/app/app');
     </script>
 </head>
 
 <body class="container">
     <h1>Image Share</h1>
-    <ng-view></ng-view>
+    <app></app>
 </body>
 
 </html>

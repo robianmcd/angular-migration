@@ -1,6 +1,6 @@
-import ApiService from "./apiService";
+import ApiService from "../../services/apiService";
 
-export default class ImageListCtrl {
+class ImageListCtrl {
     images: string[];
     showModal: boolean;
     
@@ -20,3 +20,8 @@ export default class ImageListCtrl {
         });
     }
 }
+
+export default {
+    templateUrl: 'src/components/imageList/imageList.html',
+    controller: ImageListCtrl
+};
