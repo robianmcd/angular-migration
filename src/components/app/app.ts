@@ -1,8 +1,10 @@
 import imageListOptions from '../imageList/imageListComponent';
 import ApiService from '../../services/apiService';
 import imageEditorModalOptions from '../imageEditorModal/imageEditorModalComponent';
+import {UpgradeAdapter} from "angular2/upgrade";
 import IComponentOptions = angular.IComponentOptions;
 
+const upgradeAdapter = new UpgradeAdapter();
 
 angular.module('imageShare', ['ngComponentRouter'])
     .value('$routerRootComponent', 'app')
@@ -17,4 +19,4 @@ angular.module('imageShare', ['ngComponentRouter'])
     .component('imageEditorModal', imageEditorModalOptions);
 
 
-angular.bootstrap(document, ['imageShare']);
+upgradeAdapter.bootstrap(document.documentElement, ['imageShare']);
