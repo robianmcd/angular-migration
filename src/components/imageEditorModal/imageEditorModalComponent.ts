@@ -4,12 +4,10 @@ class ImageEditorModalCtrl {
     onSubmit:(args: {$image: string}) => void;
 
 
-    submit(valid) {
-        if (valid) {
-            this.onSubmit({$image: this.image});
-            this.image = null;
-            this.show = false;
-        }
+    submit() {
+        this.onSubmit({$image: this.image});
+        this.image = null;
+        this.show = false;
     }
 
     cancel() {
