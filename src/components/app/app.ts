@@ -1,14 +1,13 @@
-import imageListOptions from '../imageList/imageListComponent';
-import ApiService from '../../services/apiService';
-import imageEditorModalOptions from '../imageEditorModal/imageEditorModalComponent';
-import {UpgradeAdapter} from "angular2/upgrade";
+import ApiService from "../../services/apiService";
+import imageEditorModalOptions from "../imageEditorModal/imageEditorModalComponent";
+import {Http, HTTP_PROVIDERS} from "angular2/http";
+import "rxjs/add/operator/map";
+import {ImageList} from "../imageList/imageListComponent";
 import IComponentOptions = angular.IComponentOptions;
-import {Http, HTTP_PROVIDERS} from 'angular2/http';
-import 'rxjs/add/operator/map';
+import {adapter} from "../../adapter";
 
-const upgradeAdapter = new UpgradeAdapter();
+adapter.addProvider(HTTP_PROVIDERS);
 
-upgradeAdapter.addProvider(HTTP_PROVIDERS);
 
 angular.module('imageShare', ['ngComponentRouter'])
     .value('$routerRootComponent', 'app')
@@ -19,10 +18,11 @@ angular.module('imageShare', ['ngComponentRouter'])
         ]
     })
     .service('api', ApiService)
-    .component('imageList', imageListOptions)
+    .directive('imageList', <ng.IDirectiveFactory>adapter.downgradeNg2Component(ImageList))
     .component('imageEditorModal', imageEditorModalOptions)
 
-    .factory('http', upgradeAdapter.downgradeNg2Provider(Http));
+    .factory('http', adapter.downgradeNg2Provider(Http));
 
+adapter.upgradeNg1Provider('api', {asToken: ApiService});
 
-upgradeAdapter.bootstrap(document.documentElement, ['imageShare']);
+adapter.bootstrap(document.documentElement, ['imageShare']);
