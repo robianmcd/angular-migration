@@ -1,5 +1,5 @@
 import ApiService from "../../services/apiService";
-import {Component} from "angular2/core";
+import {Component, ChangeDetectorRef} from "angular2/core";
 import {adapter} from "../../adapter";
 
 @Component({
@@ -11,7 +11,7 @@ export class ImageList {
     images: string[];
     showModal: boolean;
 
-    constructor(private api: ApiService) {
+    constructor(private api: ApiService, private cd: ChangeDetectorRef) {
         api.getImages().subscribe((images) => {
             this.images = images;
         });
@@ -21,9 +21,10 @@ export class ImageList {
         this.showModal = true;
     }
 
-    uploadNewImage(image) {
-        this.api.createImage(image).subscribe(createdImage => {
+    uploadNewImage(event) {
+        this.api.createImage(event.$image).subscribe(createdImage => {
             this.images.unshift(createdImage);
+            this.cd.detectChanges();
         });
     }
 }
