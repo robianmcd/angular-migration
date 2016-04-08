@@ -18,7 +18,7 @@ angular.module('imageShare', ['ngComponentRouter'])
         ]
     })
     .service('api', ApiService)
-    .directive('imageList', <ng.IDirectiveFactory>adapter.downgradeNg2Component(ImageList))
+    .directive('imageList', adapter.downgradeNg2Component(ImageList))
     .component('imageEditorModal', imageEditorModalOptions)
 
     .factory('http', adapter.downgradeNg2Provider(Http));
