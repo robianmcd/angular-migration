@@ -1,6 +1,5 @@
-import {Http} from "angular2/http";
+import {Http, Headers} from "angular2/http";
 import {Observable} from "rxjs/Observable";
-
 
 const IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
 
@@ -16,7 +15,9 @@ export default class ApiService {
     }
 
     createImage(image): Observable<string> {
-        return this.http.post(IMAGES_URL, image)
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(IMAGES_URL, JSON.stringify(image), {headers: headers})
             .map(res => res.json());
     }
 }
