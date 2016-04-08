@@ -1,11 +1,17 @@
-class ImageEditorModalCtrl {
-    image:string;
-    show:boolean;
-    onSubmit:(args: {$image: string}) => void;
+import {Component, Input, Output, EventEmitter} from "angular2/core";
+
+@Component({
+    templateUrl: 'src/components/imageEditorModal/imageEditorModal.html',
+    selector: 'image-editor-modal'
+})
+export class ImageEditorModal {
+    image = {url: '', description: ''};
+    @Input() show: boolean;
+    @Output() onSubmit = new EventEmitter();
 
 
     submit() {
-        this.onSubmit({$image: this.image});
+        this.onSubmit.emit(this.image);
         this.image = null;
         this.show = false;
     }
@@ -15,12 +21,3 @@ class ImageEditorModalCtrl {
         this.show = false;
     }
 }
-
-export default {
-    templateUrl: 'src/components/imageEditorModal/imageEditorModal.html',
-    controller: ImageEditorModalCtrl,
-    bindings: {
-        show: '=',
-        onSubmit: '&'
-    }
-};

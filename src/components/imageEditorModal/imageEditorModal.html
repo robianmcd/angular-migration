@@ -1,14 +1,14 @@
-<div ng-if="$ctrl.show">
+<div *ngIf="show">
 
-    <div class="modal-background" ng-click="$ctrl.cancel()"></div>
+    <div class="modal-background" (click)="cancel()"></div>
 
     <div class="modal-content">
-        <form name="form" ng-submit="$ctrl.submit()">
+        <form name="form" (ngSubmit)="submit()">
 
             <div class="form-group">
                 <label for="url">Image Url</label>
                 <input
-                        ng-model="$ctrl.image.url"
+                        [(ngModel)]="image.url"
                         type="url"
                         class="form-control"
                         id="url"
@@ -23,12 +23,12 @@
                   id="description"
                   name="description"
                   placeholder="Describe the image"
-                  ng-model="$ctrl.image.description">
+                  [(ngModel)]="image.description">
           </textarea>
             </div>
 
             <div class="pull-right">
-                <button ng-click="$ctrl.cancel()" type="button" class="btn btn-default">
+                <button (click)="cancel()" type="button" class="btn btn-default">
                     Cancel
                 </button>
                 <button type="submit" class="btn btn-primary">
