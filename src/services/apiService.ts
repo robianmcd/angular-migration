@@ -1,8 +1,10 @@
 import {Http, Headers} from "angular2/http";
 import {Observable} from "rxjs/Observable";
+import {Injectable} from "angular2/core";
 
 const IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
 
+@Injectable()
 export default class ApiService {
     
     constructor(private http: Http) {

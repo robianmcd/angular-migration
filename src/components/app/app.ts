@@ -1,11 +1,12 @@
 import ApiService from "../../services/apiService";
-import {Http, HTTP_PROVIDERS} from "angular2/http";
+import {HTTP_PROVIDERS} from "angular2/http";
 import "rxjs/add/operator/map";
 import {ImageList} from "../imageList/imageListComponent";
 import IComponentOptions = angular.IComponentOptions;
 import {adapter} from "../../adapter";
 
 adapter.addProvider(HTTP_PROVIDERS);
+adapter.addProvider(ApiService);
 
 
 angular.module('imageShare', ['ngComponentRouter'])
@@ -16,11 +17,6 @@ angular.module('imageShare', ['ngComponentRouter'])
             {path: '/home', name: 'ImageList', component: 'imageList', useAsDefault: true}
         ]
     })
-    .service('api', ApiService)
-    .directive('imageList', adapter.downgradeNg2Component(ImageList))
-
-    .factory('http', adapter.downgradeNg2Provider(Http));
-
-adapter.upgradeNg1Provider('api', {asToken: ApiService});
+    .directive('imageList', adapter.downgradeNg2Component(ImageList));
 
 adapter.bootstrap(document.documentElement, ['imageShare']);

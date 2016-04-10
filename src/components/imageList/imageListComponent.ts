@@ -22,7 +22,6 @@ export class ImageList {
     }
 
     uploadNewImage(image) {
-        console.log(image);
         this.api.createImage(image).subscribe(createdImage => {
             this.images.unshift(createdImage);
         });
