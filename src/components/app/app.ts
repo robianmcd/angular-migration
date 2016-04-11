@@ -2,21 +2,20 @@ import ApiService from "../../services/apiService";
 import {HTTP_PROVIDERS} from "angular2/http";
 import "rxjs/add/operator/map";
 import {ImageList} from "../imageList/imageListComponent";
-import IComponentOptions = angular.IComponentOptions;
-import {adapter} from "../../adapter";
+import {Component} from "angular2/core";
+import {RouteConfig, Route, ROUTER_PROVIDERS, ROUTER_DIRECTIVES} from "angular2/router";
+import {bootstrap} from "angular2/platform/browser";
 
-adapter.addProvider(HTTP_PROVIDERS);
-adapter.addProvider(ApiService);
+@Component({
+    selector: 'app',
+    template: '<router-outlet></router-outlet>',
+    directives: [ROUTER_DIRECTIVES]
+})
+@RouteConfig([
+    new Route({path: '/home', name: 'ImageList', component: ImageList, useAsDefault: true})
+])
+class App {
 
+}
 
-angular.module('imageShare', ['ngComponentRouter'])
-    .value('$routerRootComponent', 'app')
-    .component('app', {
-        template: '<ng-outlet></ng-outlet>',
-        $routeConfig: [
-            {path: '/home', name: 'ImageList', component: 'imageList', useAsDefault: true}
-        ]
-    })
-    .directive('imageList', adapter.downgradeNg2Component(ImageList));
-
-adapter.bootstrap(document.documentElement, ['imageShare']);
+bootstrap(App, [HTTP_PROVIDERS, ApiService, ROUTER_PROVIDERS]);
