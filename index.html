@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="src/style.css"/>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+
+    <script src="src/components/app/app.js"></script>
+    <script src="src/components/imageList/imageListCtrl.js"></script>
+    <script src="src/components/imageEditorModal/imageEditorModalDirective.js"></script>
+    <script src="src/services/apiService.js"></script>
+
+</head>
+
+<body class="container" ng-app="imageShare">
+    <h1>Image Share</h1>
+    <ng-view></ng-view>
+</body>
+
+</html>
