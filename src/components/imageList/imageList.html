@@ -1,9 +1,9 @@
 <div>
     <div class="input-group">
-        <button class="btn btn-primary" ng-click="addImage()">Add Image</button>
+        <button class="btn btn-primary" ng-click="$ctrl.addImage()">Add Image</button>
     </div>
     <ul class="list-group">
-        <li ng-repeat="image in images" class="list-group-item">
+        <li ng-repeat="image in $ctrl.images" class="list-group-item">
             <div class="media">
                 <div class="media-left">
                     <img src="" ng-src="{{image.url}}">
@@ -17,4 +17,4 @@
     </ul>
 </div>
 
-<image-editor-modal show="showModal" on-submit="uploadNewImage($image)"></image-editor-modal>
+<image-editor-modal show="$ctrl.showModal" on-submit="$ctrl.uploadNewImage($image)"></image-editor-modal>

@@ -1,17 +1,23 @@
 (function() {
-    angular.module('imageShare').controller('ImageListCtrl', function($scope, api) {
+    angular.module('imageShare').controller('ImageListCtrl', ImageListCtrl);
+    
+    function ImageListCtrl(api) {
+        var self = this;
+        this.api = api;
+
         api.getImages().then(function(images) {
-            $scope.images = images;
+            self.images = images;
         });
-        
-        $scope.addImage = function() {
-            $scope.showModal = true;
-        };
-        
-        $scope.uploadNewImage = function(image) {
-            api.createImage(image).then(function(createdImage) {
-                $scope.images.unshift(createdImage);
-            });
-        };
-    });
+    }
+
+    ImageListCtrl.prototype.addImage = function() {
+        this.showModal = true;
+    };
+
+    ImageListCtrl.prototype.uploadNewImage = function(image) {
+        var self = this;
+        this.api.createImage(image).then(function(createdImage) {
+            self.images.unshift(createdImage);
+        });
+    };
 })();

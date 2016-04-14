@@ -7,20 +7,25 @@
                 show: '=',
                 onSubmit: '&'
             },
-            link: function(scope) {
-
-                scope.close = function () {
-                    scope.show = false;
-                    scope.url = '';
-                    scope.description = '';
-                };
-
-                scope.submit = function() {
-                    scope.onSubmit({$image: {url: scope.url, description: scope.description}});
-                    scope.close();
-                };
-            }
+            controller: ImageEditorModalCtrl,
+            controllerAs: '$ctrl',
+            bindToController: true
         };
     });
+
+    function ImageEditorModalCtrl() {
+
+    }
+
+    ImageEditorModalCtrl.prototype.close = function() {
+        this.show = false;
+        this.url = '';
+        this.description = '';
+    };
+
+    ImageEditorModalCtrl.prototype.submit = function() {
+        this.onSubmit({$image: {url: this.url, description: this.description}});
+        this.close();
+    };
 
 })();

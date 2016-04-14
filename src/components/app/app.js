@@ -6,7 +6,7 @@
         $routeProvider
             .when('/images', {
                 templateUrl: 'src/components/imageList/imageList.html',
-                controller: 'ImageListCtrl'
+                controller: 'ImageListCtrl as $ctrl'
             })
             .otherwise({
                 redirectTo: '/images'
