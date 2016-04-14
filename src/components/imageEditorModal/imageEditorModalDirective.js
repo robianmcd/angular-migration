@@ -3,16 +3,20 @@
         return {
             restrict: 'E',
             templateUrl: 'src/components/imageEditorModal/imageEditorModal.html',
+            scope: {
+                show: '=',
+                onSubmit: '&'
+            },
             link: function(scope) {
 
                 scope.close = function () {
-                    scope.showModal = false;
+                    scope.show = false;
                     scope.url = '';
                     scope.description = '';
                 };
 
                 scope.submit = function() {
-                    scope.uploadNewImage({url: scope.url, description: scope.description});
+                    scope.onSubmit({$image: {url: scope.url, description: scope.description}});
                     scope.close();
                 };
             }
