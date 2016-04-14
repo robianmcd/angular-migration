@@ -1,7 +1,10 @@
 (function() {
-    angular.module('imageShare').controller('ImageListCtrl', ImageListCtrl);
-    
-    function ImageListCtrl(api) {
+    angular.module('imageShare').component('imageList', {
+        templateUrl: 'src/components/imageList/imageList.html',
+        controller: ImageListComponent
+    });
+
+    function ImageListComponent(api) {
         var self = this;
         this.api = api;
 
@@ -10,11 +13,11 @@
         });
     }
 
-    ImageListCtrl.prototype.addImage = function() {
+    ImageListComponent.prototype.addImage = function() {
         this.showModal = true;
     };
 
-    ImageListCtrl.prototype.uploadNewImage = function(image) {
+    ImageListComponent.prototype.uploadNewImage = function(image) {
         var self = this;
         this.api.createImage(image).then(function(createdImage) {
             self.images.unshift(createdImage);
