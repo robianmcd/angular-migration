@@ -1,23 +1,20 @@
-(function () {
-    var IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
+var IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
 
-    angular.module('imageShare').factory('api', function($http: ng.IHttpService) {
-        function getImages() {
-            return $http.get(IMAGES_URL).then((response) => {
-                return response.data;
-            });
-        }
+class ApiService {
+    constructor(private $http: ng.IHttpService) {
+    }
 
-        function createImage(image) {
-            return $http.post(IMAGES_URL, image).then((response) => {
-                return response.data;
-            });
-        }
+    getImages(): ng.IPromise<Image[]> {
+        return this.$http.get(IMAGES_URL).then((response) => {
+            return response.data;
+        });
+    }
 
-        return {
-            getImages: getImages,
-            createImage: createImage
-        };
-    });
+    createImage(image): ng.IPromise<Image> {
+        return this.$http.post(IMAGES_URL, image).then((response) => {
+            return response.data;
+        });
+    }
+}
 
-})();
+angular.module('imageShare').service('api', ApiService);

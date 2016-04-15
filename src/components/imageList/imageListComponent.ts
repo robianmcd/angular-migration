@@ -4,7 +4,7 @@
         images: Image[];
         showModal: boolean;
         
-        constructor(private api) {
+        constructor(private api: ApiService) {
             api.getImages().then((images) => {
                 this.images = images;
             });
