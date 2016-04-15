@@ -1,7 +1,7 @@
 (function(){
     var app = angular.module('imageShare', ['ngRoute']);
 
-    app.config(['$routeProvider', function ($routeProvider) {
+    app.config(['$routeProvider', function ($routeProvider: angular.route.IRouteProvider) {
 
         $routeProvider
             .when('/images', {
