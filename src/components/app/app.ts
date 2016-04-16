@@ -1,5 +1,4 @@
 import ApiService from "../../services/apiService";
-import {imageEditorModalOptions} from "../imageEditorModal/imageEditorModalComponent";
 import {adapter} from "../../adapter";
 import {HTTP_PROVIDERS, Http} from "angular2/http";
 import 'rxjs/add/operator/map';
@@ -21,7 +20,6 @@ app.config(['$routeProvider', function ($routeProvider: angular.route.IRouteProv
 app
     .service('api', ApiService)
     .directive('imageList', adapter.downgradeNg2Component(ImageListComponent))
-    .component('imageEditorModal', imageEditorModalOptions)
 
     .factory('http', adapter.downgradeNg2Provider(Http));
 

@@ -1,28 +1,25 @@
-class ImageEditorModalComponent {
-    show: boolean = false;
+import {Component, Input, Output, EventEmitter} from "angular2/core";
+
+@Component({
+    templateUrl: 'src/components/imageEditorModal/imageEditorModal.html',
+    selector: 'image-editor-modal'
+})
+export class ImageEditorModalComponent {
     url: string;
     description: string;
-    onSubmit: (args: {$image: Image}) => void;
+    
+    @Input() show: boolean;
+    @Output() showChange = new EventEmitter();
+    @Output() onSubmit = new EventEmitter();
 
     close() {
-        this.show = false;
+        this.showChange.emit(false);
         this.url = '';
         this.description = '';
     };
 
     submit() {
-        this.onSubmit({$image: {url: this.url, description: this.description}});
+        this.onSubmit.emit({url: this.url, description: this.description});
         this.close();
     };
 }
-
-const imageEditorModalOptions = {
-    templateUrl: 'src/components/imageEditorModal/imageEditorModal.html',
-    bindings: {
-        show: '=',
-        onSubmit: '&'
-    },
-    controller: ImageEditorModalComponent
-};
-
-export {ImageEditorModalComponent, imageEditorModalOptions};

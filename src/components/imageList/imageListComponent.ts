@@ -1,11 +1,11 @@
 import ApiService from "../../services/apiService";
-import {adapter} from "../../adapter";
 import {Component} from "angular2/core";
+import {ImageEditorModalComponent} from "../imageEditorModal/imageEditorModalComponent";
 
 @Component({
     templateUrl: 'src/components/imageList/imageList.html',
     selector: 'image-list',
-    directives: [adapter.upgradeNg1Component('imageEditorModal')]
+    directives: [ImageEditorModalComponent]
 })
 export class ImageListComponent {
     images: Image[];
@@ -21,8 +21,8 @@ export class ImageListComponent {
         this.showModal = true;
     };
 
-    uploadNewImage(event) {
-        this.api.createImage(event.$image).subscribe((createdImage) => {
+    uploadNewImage(image) {
+        this.api.createImage(image).subscribe((createdImage) => {
             this.images.unshift(createdImage);
         });
     };
