@@ -4,7 +4,7 @@ class ImageListComponent {
     showModal: boolean;
 
     constructor(private api: ApiService) {
-        api.getImages().then((images) => {
+        api.getImages().subscribe((images) => {
             this.images = images;
         });
     }
@@ -14,7 +14,7 @@ class ImageListComponent {
     };
 
     uploadNewImage(image) {
-        this.api.createImage(image).then((createdImage) => {
+        this.api.createImage(image).subscribe((createdImage) => {
             this.images.unshift(createdImage);
         });
     };
