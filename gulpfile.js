@@ -4,7 +4,9 @@ var ts = require('gulp-typescript');
 gulp.task('ts', function () {
     return gulp.src(['src/**/*.ts', 'typings/**/*.ts'])
         .pipe(ts({
-            target: 'ES5'
+            target: 'ES5',
+            module: 'system',
+            typescript: require('typescript')
         }))
         .pipe(gulp.dest('src'));
 });

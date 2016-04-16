@@ -1,15 +1,24 @@
-(function(){
-    var app = angular.module('imageShare', ['ngRoute']);
+import ApiService from "../../services/apiService";
+import {imageListOptions} from "../imageList/imageListComponent";
+import {imageEditorModalOptions} from "../imageEditorModal/imageEditorModalComponent";
 
-    app.config(['$routeProvider', function ($routeProvider: angular.route.IRouteProvider) {
+var app = angular.module('imageShare', ['ngRoute']);
 
-        $routeProvider
-            .when('/images', {
-                template: '<image-list></image-list>'
-            })
-            .otherwise({
-                redirectTo: '/images'
-            });
-    }]);
-})();
+app.config(['$routeProvider', function ($routeProvider: angular.route.IRouteProvider) {
 
+    $routeProvider
+        .when('/images', {
+            template: '<image-list></image-list>'
+        })
+        .otherwise({
+            redirectTo: '/images'
+        });
+}]);
+
+app
+    .service('api', ApiService)
+    .component('imageList', imageListOptions)
+    .component('imageEditorModal', imageEditorModalOptions);
+
+
+angular.bootstrap(document, ['imageShare']);
