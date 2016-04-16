@@ -1,6 +1,7 @@
 import ApiService from "../../services/apiService";
 import {imageListOptions} from "../imageList/imageListComponent";
 import {imageEditorModalOptions} from "../imageEditorModal/imageEditorModalComponent";
+import {adapter} from "../../adapter";
 
 var app = angular.module('imageShare', ['ngRoute']);
 
@@ -21,4 +22,4 @@ app
     .component('imageEditorModal', imageEditorModalOptions);
 
 
-angular.bootstrap(document, ['imageShare']);
+adapter.bootstrap(document.documentElement, ['imageShare']);
