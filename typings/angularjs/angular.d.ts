@@ -232,6 +232,7 @@ declare namespace angular {
          * @param directiveFactory An injectable directive factory function.
          */
         directive(name: string, directiveFactory: IDirectiveFactory): IModule;
+        directive(name: string, directiveFactory: Function): IModule;
         /**
          * Register a new directive with the compiler.
          *
