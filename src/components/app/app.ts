@@ -1,6 +1,6 @@
 import ApiService from "../../services/apiService";
 import {adapter} from "../../adapter";
-import {HTTP_PROVIDERS, Http} from "angular2/http";
+import {HTTP_PROVIDERS} from "angular2/http";
 import 'rxjs/add/operator/map';
 import {ImageListComponent} from "../imageList/imageListComponent";
 
@@ -17,14 +17,10 @@ app.config(['$routeProvider', function ($routeProvider: angular.route.IRouteProv
         });
 }]);
 
-app
-    .service('api', ApiService)
-    .directive('imageList', adapter.downgradeNg2Component(ImageListComponent))
-
-    .factory('http', adapter.downgradeNg2Provider(Http));
+app.directive('imageList', adapter.downgradeNg2Component(ImageListComponent));
 
 adapter.addProvider(HTTP_PROVIDERS);
-adapter.upgradeNg1Provider('api', {asToken: ApiService});
+adapter.addProvider(ApiService);
 
 
 adapter.bootstrap(document.documentElement, ['imageShare']);
