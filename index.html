@@ -2,12 +2,12 @@
 <html>
 
 <head>
+    <base href="/">
+
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="src/style.css"/>
 
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-route/angular-route.js"></script>
 
     <script src="/node_modules/es6-shim/es6-shim.js"></script>
     <script src="/node_modules/systemjs/dist/system-polyfills.js"></script>
@@ -17,7 +17,7 @@
     <script src="/node_modules/rxjs/bundles/Rx.js"></script>
     <script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
     <script src="/node_modules/angular2/bundles/http.dev.js"></script>
-    <script src="/node_modules/angular2/bundles/upgrade.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
 
     <script>
         System.config({
@@ -29,7 +29,7 @@
 
 <body class="container">
     <h1>Image Share</h1>
-    <ng-view></ng-view>
+    <app></app>
 </body>
 
 </html>
