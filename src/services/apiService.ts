@@ -1,6 +1,6 @@
-var IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
+const IMAGES_URL = 'https://image-share.herokuapp.com/api/images';
 
-class ApiService {
+export default class ApiService {
     constructor(private $http: ng.IHttpService) {
     }
 
@@ -16,5 +16,3 @@ class ApiService {
         });
     }
 }
-
-angular.module('imageShare').service('api', ApiService);

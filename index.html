@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
     <link rel="stylesheet" href="src/style.css"/>
 
+    <!--<script src="node_modules/systemjs/dist/system.src.js"></script>-->
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-route/angular-route.js"></script>
 
@@ -13,9 +14,15 @@
     <script src="src/components/imageEditorModal/imageEditorModalComponent.js"></script>
     <script src="src/services/apiService.js"></script>
 
+    <!--<script>
+        System.config({
+            packages: {'src': {defaultExtension: 'js'}}
+        });
+        System.import('src/components/app/app');
+    </script>-->
 </head>
 
-<body class="container" ng-app="imageShare">
+<body class="container">
     <h1>Image Share</h1>
     <ng-view></ng-view>
 </body>
