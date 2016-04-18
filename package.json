@@ -9,7 +9,9 @@
   "dependencies": {
     "angular": "1.5.3",
     "angular-route": "1.5.3",
-    "bootstrap": "3.3.6"
+    "bootstrap": "3.3.6",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^2.13.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
